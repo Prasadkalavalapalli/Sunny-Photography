@@ -64,7 +64,14 @@ const navigate=useNavigate();
       <marquee>
   <div className="d-flex">
     {images.map((slide, index) => (
-      <div key={index} className="mx-3" onClick={() =>{navigate(`/${slide.occasion}`);window.scroll(0,0);}}> 
+      <div key={index} className="mx-3" onClick={() =>{navigate(`/${slide.occasion}`);window.scroll(0,0);}} style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+      cursor: 'pointer'}} onMouseOver={(e) => {
+        e.currentTarget.style.transform = 'scale(1.06)';
+       
+      }} onMouseOut={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}> 
         
         <div className="card-body" >
         <img src={slide.src} alt={slide.title} className="card-img-top" style={{ width: "200px" ,borderRadius:"20px",height: "150px"}} />

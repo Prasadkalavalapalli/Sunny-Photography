@@ -7,7 +7,14 @@ import { Navigate, useNavigate } from "react-router-dom";
 const HomePage = () => {
   const navigate = useNavigate();
   return (
-    <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
+    <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden", transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+      cursor: 'pointer'}} onMouseOver={(e) => {
+        e.currentTarget.style.transform = 'scale(1.03)';
+        
+      }} onMouseOut={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}>
       {/* Background Video */}
       <iframe
         style={{
