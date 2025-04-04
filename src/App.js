@@ -16,6 +16,8 @@ import Destination from "./Destination";
 import Beach from "./Beach";
 import BookingForm from "./Booking";
 import Service from "./Service";
+import Customers from "./Customers";
+import Login from "./Login";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/bookings-details" element={<Customers/>} />
         <Route path="/service" element={<Service/>} />
         <Route path="/contact" element={<Contactus />} />
         <Route path="/booking" element={<BookingForm />} />
