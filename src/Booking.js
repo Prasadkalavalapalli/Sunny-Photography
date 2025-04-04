@@ -65,7 +65,7 @@ const BookingForm = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:9090/postbookings", formData);
+      const response = await axios.post("https://sunnyphotographybackend-production.up.railway.app/postbookings", formData);
       if (response.status === 200 || response.status === 201) {
         setShowModal(true);
         setFormData({

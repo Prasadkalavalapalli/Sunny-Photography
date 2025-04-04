@@ -11,7 +11,7 @@ const Customer = () => {
   }, []);
 
   const fetchCustomers = () => {
-    axios.get("http://localhost:9090/getbookings")
+    axios.get("https://sunnyphotographybackend-production.up.railway.app/getbookings")
       .then((response) => {
         setCustomers(response.data);
       })
@@ -31,7 +31,7 @@ const Customer = () => {
   const handleSubmitChange = async (id) => {
     try {
       const updatedStatus = editedStatuses[id];
-      await axios.put("http://localhost:9090/updateStatus", { id, status: updatedStatus });
+      await axios.put("https://sunnyphotographybackend-production.up.railway.app/updateStatus", { id, status: updatedStatus });
 
       setEditingStatus(null); // Exit edit mode
       setEditedStatuses((prev) => {
@@ -49,31 +49,31 @@ const Customer = () => {
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">Customer Bookings</h2>
-      <div className="overflow-x-auto shadow-lg rounded-lg">
-        <table className="min-w-full border border-gray-300 bg-white">
+      <div className="overflow-x-auto shadow-lg rounded-lg  ">
+        <table className="table table-border">
           <thead>
-            <tr className="bg-blue-100 text-blue-900">
-              <th className="border px-4 py-2">S.No</th>
-              <th className="border px-4 py-2">Name</th>
-              <th className="border px-4 py-2">Phone</th>
-              <th className="border px-4 py-2">Date</th>
-              <th className="border px-4 py-2">Venue</th>
-              <th className="border px-4 py-2">Package</th>
-              <th className="border px-4 py-2">Requests</th>
-              <th className="border px-4 py-2">Status</th>
+            <tr className="bg-blue-100 text-blue-900 " >
+              <th className=" px-4 py-2">S.No</th>
+              <th className=" px-4 py-2">Name</th>
+              <th className=" px-4 py-2">Phone</th>
+              <th className="px-4 py-2">Date</th>
+              <th className="px-4 py-2">Venue</th>
+              <th className="px-4 py-2">Package</th>
+              <th className=" px-4 py-2">Requests</th>
+              <th className="px-4 py-2">Status</th>
             </tr>
           </thead>
           <tbody>
             {customers.map((customer, index) => (
-              <tr key={customer.id} className={`${index % 2 === 0 ? "bg-gray-50" : "bg-white"}`}>
-                <td className="border px-4 py-2">{index + 1}</td>
-                <td className="border px-4 py-2">{customer.name}</td>
-                <td className="border px-4 py-2">{customer.phone}</td>
-                <td className="border px-4 py-2">{customer.date}</td>
-                <td className="border px-4 py-2">{customer.venue}</td>
-                <td className="border px-4 py-2">{customer.packageName}</td>
-                <td className="border px-4 py-2">{customer.requests}</td>
-                <td className="border px-4 py-2">
+              <tr key={customer.id} className={`${index % 2 === 0 ? "bg-secondary" : "bg-white"}`}>
+                <td className=" px-4 py-2">{index + 1}</td>
+                <td className=" px-4 py-2">{customer.name}</td>
+                <td className="px-4 py-2">{customer.phone}</td>
+                <td className="px-4 py-2">{customer.date}</td>
+                <td className=" px-4 py-2">{customer.venue}</td>
+                <td className=" px-4 py-2">{customer.packageName}</td>
+                <td className=" px-4 py-2">{customer.requests}</td>
+                <td className=" px-4 py-2">
                   {editingStatus === customer.id ? (
                     <>
                       <select
@@ -92,6 +92,7 @@ const Customer = () => {
                       >
                         Submit
                       </button>
+                      <hr/>
                     </>
                   ) : (
                     <span
